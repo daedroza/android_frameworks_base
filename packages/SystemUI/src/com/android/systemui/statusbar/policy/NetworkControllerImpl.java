@@ -1023,10 +1023,10 @@ public class NetworkControllerImpl extends BroadcastReceiver
 
     @VisibleForTesting
     static class Config {
-        boolean showAtLeast3G = false;
+        boolean showAtLeast3G = true;
         boolean alwaysShowCdmaRssi = false;
-        boolean show4gForLte = false;
-        boolean hideLtePlus = false;
+        boolean show4gForLte = true;
+        boolean hideLtePlus = true;
         boolean hspaDataDistinguishable;
         boolean inflateSignalStrengths = false;
         boolean alwaysShowDataRatIcon = false;
