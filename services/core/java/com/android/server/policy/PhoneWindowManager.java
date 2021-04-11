@@ -98,6 +98,7 @@ import android.app.ActivityTaskManager;
 import android.app.AlarmManager;
 import android.app.AppOpsManager;
 import android.app.IUiModeManager;
+import android.app.KeyguardManager;
 import android.app.PendingIntent;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
@@ -1405,9 +1406,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case LONG_PRESS_POWER_GLOBAL_ACTIONS:
                 mPowerKeyHandled = true;
-                performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
-                        "Power - Long Press - Global Actions");
-                showGlobalActionsInternal();
+                KeyguardManager km = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
+                if (!km.isKeyguardLocked()) {
+                    performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
+                            "Power - Long Press - Global Actions");
+                    showGlobalActionsInternal();
+                }
                 break;
             case LONG_PRESS_POWER_SHUT_OFF:
             case LONG_PRESS_POWER_SHUT_OFF_NO_CONFIRM:
