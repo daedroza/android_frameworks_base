@@ -692,7 +692,7 @@
         android:permissionGroup="android.permission-group.UNDEFINED"
         android:label="@string/permlab_writeContacts"
         android:description="@string/permdesc_writeContacts"
-        android:protectionLevel="dangerous" />
+        android:protectionLevel="signature|dangerous" />
 
     <!-- ====================================================================== -->
     <!-- Permissions for accessing user's calendar                              -->
